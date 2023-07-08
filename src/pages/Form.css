@@ -1,0 +1,80 @@
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 1000px;
+    height: auto;
+    background-color: #fff;
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-container form {
+    height: 100%;
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+.form-group-header {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin-bottom: 10px;
+}
+
+.form-group-header-comments {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-group input,
+textarea,
+select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group label {
+    color: #555;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input:focus,
+textarea:focus,
+select:focus {
+    border-color: #00b4d8;
+    box-shadow: 0 0 8px 0 #00b4d8;
+}
+
+.form-group input[type="submit"] {
+    width: 100px;
+    background-color: #00b4d8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #0096c7;
+}

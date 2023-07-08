@@ -1,0 +1,56 @@
+/* bring display container in the middle of the page and make it a flex box with flex wrap */
+
+.display-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.display-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 20px 0 20px;
+    width: 300px;
+    height: auto;
+    background-color: #fff;
+}
+
+.display-card h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.display-card-content-personal h3 {
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.display-card-content-job {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.display-card-content-job-header {
+    width: auto;
+}
+
+.display-card-content-job-header h3,
+.display-card-content-header-job-comments h3 {
+    margin-bottom: 0;
+}
+
+.display-card-content-job-header p,
+.display-card-content-header-job-comments p {
+    margin-top: 5px;
+}
