@@ -1,9 +1,9 @@
 import Form from './pages/Form';
 import Display from './pages/Display';
-import { Amplify } from 'aws-amplify';
-import awsconfig from './aws-exports';
+// import { Amplify } from 'aws-amplify';
+// import awsconfig from './aws-exports';
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
 
 function App() {
   return (
