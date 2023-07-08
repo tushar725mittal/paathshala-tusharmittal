@@ -1,0 +1,9 @@
+type JobSeeker @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  email: String!
+  phone: String!
+  jobTitle: String!
+  jobType: String!
+  comments: String!
+}

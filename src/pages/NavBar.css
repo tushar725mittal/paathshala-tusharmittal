@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #2154b1;
+    padding: 50px;
+}
+
+button {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    background-color: #05000000;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    outline: none;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #2154b1;
+    border-color: #2154b1;
+}

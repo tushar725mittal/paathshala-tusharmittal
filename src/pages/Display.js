@@ -1,31 +1,84 @@
 import './Display.css'
+import React, { useState, useEffect } from 'react';
+import { API } from 'aws-amplify';
+
+const listJobSeekers = `
+    query ListJobSeekers(
+        $filter: ModelJobSeekerFilterInput
+        $limit: Int
+        $nextToken: String
+    ) {
+        listJobSeekers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+            items {
+                id
+                name
+                email
+                phone
+                jobTitle
+                jobType
+                comments
+            }
+            nextToken
+        }
+    }
+`
 
 export default function Display() {
+    const [jobSeekers, setJobSeekers] = useState([]);
+
+    async function fetchJobSeekers() {
+        const { data } = await API.graphql({
+            query: listJobSeekers,
+            variables: { limit: 100 }
+        });
+        setJobSeekers(data.listJobSeekers.items);
+    }
+
+
+    useEffect(() => {
+        fetchJobSeekers();
+    }, []);
     return (
-        <div className="display-container">
-            <div className="display-card">
-                <h1>John Doe</h1>
-                <div className="display-card-content-personal">
-                    <h3>
-                        <a href="mailto:
-                            t@gmail.com">t@gmail.com</a>
-                    </h3>
-                    <h3>1234567890</h3>
+        <div>
+            {jobSeekers.length > 0 ? (
+                <div className="display-container">
+                    {jobSeekers.map((jobSeeker, index) => (
+                        <div key={index}>
+                            {card(jobSeeker.name, jobSeeker.email, jobSeeker.phone, jobSeeker.jobTitle, jobSeeker.jobType, jobSeeker.comments)}
+                        </div>
+                    ))}
                 </div>
-                <div className="display-card-content-job">
-                    <div className="display-card-content-job-header">
-                        <h3>Job Title</h3>
-                        <p>Software Engineer</p>
-                    </div>
-                    <div className="display-card-content-job-header">
-                        <h3>Job Type</h3>
-                        <p>Fulltime</p>
-                    </div>
-                    <div className="display-card-content-header-job-comments">
-                        <h3>Comments:</h3>
-                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:
-                        </p>
-                    </div>
+            )
+                : (
+                    <h3>No Job Seekers</h3>
+                )}
+        </div>
+    );
+}
+
+function card(name, email, phone, jobTitle, jobType, comments) {
+    return (
+        <div className="display-card">
+            <h1>{name}</h1>
+            <div className="display-card-content-personal">
+                <h3>
+                    <a href={"mailto:" + { email }}
+                    >{email}</a>
+                </h3>
+                <h3>{phone}</h3>
+            </div>
+            <div className="display-card-content-job">
+                <div className="display-card-content-job-header">
+                    <h3>Job Title</h3>
+                    <p>{jobTitle}</p>
+                </div>
+                <div className="display-card-content-job-header">
+                    <h3>Job Type</h3>
+                    <p>{jobType}</p>
+                </div>
+                <div className="display-card-content-header-job-comments">
+                    <h3>Comments:</h3>
+                    <p>{comments}</p>
                 </div>
             </div>
         </div>
