@@ -1,0 +1,13 @@
+{
+    "AppSyncApiName": "zenverse",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "S3DeploymentBucket": "amplify-amplifye937b1b30dc14-staging-100312-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/4a04921ef4a85fec954e3c37b5d942969bc4c627"
+}
